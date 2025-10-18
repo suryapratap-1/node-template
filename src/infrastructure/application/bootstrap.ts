@@ -2,13 +2,13 @@ import { Server } from "http";
 import { Application } from "express";
 import { app } from "./app";
 import { ShutdownManager } from "./shutdown";
-import { config } from "./config";
-import { logger } from "./infrastructure/logger";
-import { IDatabasePostgreSQL } from "./common/interfaces";
-import { ApiError } from "./common/utils/constants";
-import { errorMiddleware } from "./common/middlewares";
-import { PostgreSQL } from "./infrastructure/database";
-import { V1RouterManager } from "./api";
+import { config } from "../../config";
+import { logger } from "../../utils/logger";
+import { IDatabasePostgreSQL } from "../../core/interfaces";
+import { ApiError } from "../../utils/helpers";
+import { errorMiddleware } from "../../core/middlewares";
+import { PostgreSQL } from "../database";
+// import { V1RouterManager } from "./api";
 
 export class Bootstrap {
     private static instance: Bootstrap;
@@ -16,14 +16,14 @@ export class Bootstrap {
     private app: Application;
     private databaseClient: IDatabasePostgreSQL;
     private shutdownManager: ShutdownManager;
-    private routerManager: V1RouterManager;
+    // private routerManager: V1RouterManager;
     private isRunning: boolean = false;
 
     private constructor() {
         this.app = app;
         this.databaseClient = PostgreSQL.getInstance();
         this.shutdownManager = ShutdownManager.getInstance();
-        this.routerManager = new V1RouterManager(this.app);
+        // this.routerManager = new V1RouterManager(this.app);
     }
 
     public static getInstance(): Bootstrap {
@@ -60,7 +60,7 @@ export class Bootstrap {
 
     private async setupRoutes(): Promise<void> {
         logger.info("Initializing routes...");
-        this.routerManager.initialize();
+        // this.routerManager.initialize();
         logger.info("Routes initialized successfully");
     }
 

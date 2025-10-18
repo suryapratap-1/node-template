@@ -1,5 +1,5 @@
 import { Bootstrap } from "./bootstrap";
-import { logger } from "./infrastructure/logger";
+import { logger } from "../../utils/logger";
 
 class Application {
     private static instance: Application;

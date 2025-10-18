@@ -2,7 +2,7 @@ import express, { Application } from "express";
 import helmet from "helmet";
 import cors from "cors";
 import morgan from "morgan";
-import { config } from "./config";
+import { config } from "../../config";
 
 class ExpressApp {
     private static instance: ExpressApp;

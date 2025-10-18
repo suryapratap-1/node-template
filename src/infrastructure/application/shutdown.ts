@@ -1,6 +1,6 @@
 import { Server } from "http";
-import { logger } from "./infrastructure/logger";
-import { IDatabasePostgreSQL } from "./common/interfaces";
+import { logger } from "../../utils/logger";
+import { IDatabasePostgreSQL } from "../../core/interfaces";
 
 export class ShutdownManager {
     private static instance: ShutdownManager;
