@@ -1,5 +1,6 @@
-import { Prisma } from "@prisma/client";
-import { ApiError, ErrorMessage } from "../utils";
+import { Prisma } from "../../../generated/prisma";
+import { ApiError } from "../../utils/helpers";
+import { ErrorMessage } from "../../utils/constants";
 
 /**
  * Handles Prisma + PostgreSQL specific errors and maps them to

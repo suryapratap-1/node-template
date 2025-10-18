@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { config } from "../../config";
-import { ApiError } from "../utils";
-import { logger } from "../../infrastructure/logger";
+import { ApiError } from "../../utils/helpers";
+import { logger } from "../../utils/logger";
 import { PrismaPostgresErrorHandler } from "./postgresql.middleware";
 
 type ErrorResponse = {
